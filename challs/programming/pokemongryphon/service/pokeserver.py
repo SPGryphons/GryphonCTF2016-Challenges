@@ -69,8 +69,9 @@ def logflag(host, port, timetaken):
 # Client Thread
 def client(conn, addr):
     print(cs.openlabel, gettime(), "New connection from", addr[0] + ':' + str(addr[1])) 
-    conn.send(str.encode(pikachu + "\n"))
-    conn.send(str.encode(cs.good + " Welcome to Pokemon Gryphon!\n\n"))
+    conn.send(str.encode("\n" + pikachu + "\n"))
+    conn.send(str.encode(cs.good + " Welcome to Pokemon Gryphon!\n"))
+    conn.send(str.encode(cs.good + " By Optixal\n\n"))
     conn.send(str.encode(cs.status + " Use 'spoof x,y' to move around (don't get caught teleporting)!\n"))
     conn.send(str.encode(cs.status + " Hint: Be sure not to spoof more than 5m from your current location!!\n\n"))
     conn.send(str.encode(cs.status + " Use 'catch' to catch a Pokemon only when they appear near you!\n"))
@@ -96,10 +97,9 @@ def client(conn, addr):
             # Receive
             while True:
                 if isnearpokemon(current_coord, pokemon_coord):
-                    conn.send(str.encode(cs.good + " A wild " + pokemon + " appears!\n" + cs.status + " What do you do?: "))
+                    conn.sendall(str.encode(cs.good + " A wild " + pokemon + " appears!\n" + cs.status + " What do you do?: "))
                 else:
-                    conn.send(str.encode(cs.status + " Nearest pokemon is at (X=" + str(xlocation) + ",Y=" + str(ylocation) + ")\n"))
-                    conn.send(str.encode(cs.status + " Your current location is (X=" + str(currentx) + ",Y=" + str(currenty) + ")\n" + cs.status + " What do you do?: "))
+                    conn.sendall(str.encode(cs.status + " Nearest pokemon is at (X=" + str(xlocation) + ",Y=" + str(ylocation) + ")\n" + cs.status + " Your current location is (X=" + str(currentx) + ",Y=" + str(currenty) + ")\n" + cs.status + " What do you do?: "))
                 
                 data = conn.recv(2048).decode("UTF-8")
                 
@@ -136,19 +136,19 @@ def client(conn, addr):
         #logflag(addr[0], addr[1], timetaken) 
     
     except socket.timeout:
-        conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Go for not having a continuous connection!\n"))
+        conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Gryphon for not having a continuous connection!\n"))
         print(cs.kicklabel, gettime(), "Kicked", addr[0] + ':' + str(addr[1]), "for being too slow")
     except PokemonError as pe:
         try:
-            conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Go for " + pe.value + "!\n"))
+            conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Gryphon for " + pe.value + "!\n"))
             print(cs.kicklabel, gettime(), "Kicked", addr[0] + ':' + str(addr[1]), "for", pe.value)
         except BrokenPipeError:
             print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]), "due to broken pipe") 
     except (BrokenPipeError, ConnectionResetError):
         print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]), "due to broken pipe") 
-    except Exception as e:
+    except:
         conn.send(str.encode("\n" + cs.error + " You were kicked for bad input!\n"))
-        print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]), "due to error")
+        print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]), "due to an error")
     finally:
         conn.close()
         # print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]))

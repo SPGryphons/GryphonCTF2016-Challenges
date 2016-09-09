@@ -1,2 +1,2 @@
 FROM python:3-onbuild
-CMD [ "python", "./pokeserver.py","8000" ]
+CMD [ "python3", "./pokeserver.py","8000" ]
