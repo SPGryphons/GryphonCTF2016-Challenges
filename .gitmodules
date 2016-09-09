@@ -1,0 +1,3 @@
+[submodule "challs/crypto/thekeymaker/msieve"]
+	path = challs/crypto/thekeymaker/msieve
+	url = https://github.com/radii/msieve
