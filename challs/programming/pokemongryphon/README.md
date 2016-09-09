@@ -1,5 +1,5 @@
 # Pokemon Gryphon
-All server side files are in service. `pokeserver.py` is the main server, and requires `coloredstatus.py` and `pokemons.txt`. `solution.py` is the solution for the challenge.
+All server side files are in service. Server and solution both requires Python 3+. `pokeserver.py` is the main server, and requires `coloredstatus.py` and `pokemons.txt`. `solution.py` is the solution for the challenge.
 
 ## Starting the Server
 ```sh
