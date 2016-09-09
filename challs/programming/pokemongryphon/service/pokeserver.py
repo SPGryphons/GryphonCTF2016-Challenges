@@ -133,7 +133,7 @@ def client(conn, addr):
         timetaken = str(client_end_time % 3600 // 60) + "min " + str(client_end_time % 60) + "sec"
         conn.send(str.encode(cs.good + " Congratulations, you caught them all! " + flag + "\n"))
         print(cs.flaglabel, gettime(), "Flag captured by", str(addr[0]) + ':' + str(addr[1]) + " after " + timetaken)
-        logflag(addr[0], addr[1], timetaken) 
+        #logflag(addr[0], addr[1], timetaken) 
     
     except socket.timeout:
         conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Go for not having a continuous connection!\n"))
