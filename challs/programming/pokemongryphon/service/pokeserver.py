@@ -136,11 +136,11 @@ def client(conn, addr):
         #logflag(addr[0], addr[1], timetaken) 
     
     except socket.timeout:
-        conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Gryphon for not having a continuous connection!\n"))
+        conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Go for not having a continuous connection!\n"))
         print(cs.kicklabel, gettime(), "Kicked", addr[0] + ':' + str(addr[1]), "for being too slow")
     except PokemonError as pe:
         try:
-            conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Gryphon for " + pe.value + "!\n"))
+            conn.send(str.encode("\n" + cs.error + " You were kicked from Pokemon Go for " + pe.value + "!\n"))
             print(cs.kicklabel, gettime(), "Kicked", addr[0] + ':' + str(addr[1]), "for", pe.value)
         except BrokenPipeError:
             print(cs.closelabel, gettime(), "Connection closed from", addr[0] + ':' + str(addr[1]), "due to broken pipe") 
