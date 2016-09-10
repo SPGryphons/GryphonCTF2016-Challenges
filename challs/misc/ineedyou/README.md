@@ -17,9 +17,9 @@ The solution in step by step order (solution .psd file is located in solution fo
   - Align the alignment module with the borders of the bottom-left and top-right position modules. It should be near the top-left of the bottom-right empty area.
 3. Reconstruct the missing timing bits (an ant-trail) between the position modules.
 4. Now the last bit of missing information seems to be the QR code's format information (on the edges of the position modules). We'll have to reconstruct this.
-  - Based on the hint, "the information we require begins with '00010'". This is actually the first 5 bits of the missing format information.
+  - The hint, "the information we require begins with '00010'", is actually the first 5 bits of the missing format information.
   - We can lookup these partial bits online, "[Format and Version String Tables](http://www.thonky.com/qr-code-tutorial/format-version-tables "Format and Version String Tables")" seems to be a good reference for this purpose.
-  - With the information given, there is only one format that begins with '00010', ECC level 'H', mask pattern 7. Full format string: 000100000111011
+  - With the information given, there is only one format that begins with '00010', which is ECC level 'H', mask pattern 7. Full format string: 000100000111011
   - Now, we can reconstruct the format information.
 5. Scan the QR code.
   - Since the error correction encoding level is set to 'H' for 'High', the QR code can handle up to 30% damage, therefore the missing data bits at the bottom-right of the QR code does not matter.
