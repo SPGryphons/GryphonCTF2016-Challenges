@@ -8,6 +8,7 @@ A QR code with missing information, hint given: "The information you require **b
 To solve this, the user will have to have knowledge about the structure of QR codes. One way to solve this challenge is to use an image editor such as GIMP or Photoshop.
 
 The solution in step by step order (solution .psd file is located in solution folder):
+
 1. Determine the version of the QR code
   - Based on the given image, the QR code seems to be 33x33 pixels in size. With this we can calulate the version of this QR with the formula `(n - 21) / 4 + 1`
   - The result tells us that the QR code is version 4. Version 4 QR codes do not have version information bits in the QR code, and will only contain a single 5x5 alignment module.
