@@ -50,7 +50,7 @@ public class Shorten extends HttpServlet {
 		} else {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/urlshorten?user=root&password=password1");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://db-urlshorten/urlshorten?user=root&password=password1");
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO urls (url) VALUES (?)", Statement.RETURN_GENERATED_KEYS);	
 				ps.setString(1, url);
 				if (ps.executeUpdate() > 0) {
@@ -58,7 +58,7 @@ public class Shorten extends HttpServlet {
 					if (rs.next()) {
 						int id = rs.getInt(1);
 						conn.close();
-						session.setAttribute("success", "Your shortened url: <a href=\"http://play.spgame.site:8080/l/" + id + "\" target=\"_blank\">http://play.spgame.site:8080/l/" + id + "</a>");
+						session.setAttribute("success", "Your shortened url: <a href=\"http://play.spgame.site:9997/l/" + id + "\" target=\"_blank\">http://play.spgame.site:9997/l/" + id + "</a>");
 						response.sendRedirect(".");
 					} else {
 						conn.close();
