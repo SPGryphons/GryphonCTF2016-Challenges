@@ -35,7 +35,7 @@ public class LinkRedirect extends HttpServlet {
 		try {
 			int path = Integer.parseInt(request.getPathInfo().substring(1));
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/urlshorten?user=root&password=password1");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://db-urlshorten/urlshorten?user=root&password=password1");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM urls WHERE id=?");	
 			ps.setInt(1, path);
 			ResultSet rs = ps.executeQuery();
