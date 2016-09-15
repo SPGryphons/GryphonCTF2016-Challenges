@@ -18,8 +18,11 @@ void main() {
     printf("Type in a number (Currently: %d): ", r);
 
     if (fgets(line, sizeof(line), stdin)) {
+        if (line[0] == '-') {
+            line[0] = '0';
+        }
         if (1 == sscanf(line, "%d", &i)) {
-            r += abs(i);
+            r += i;
         }
     }
 
