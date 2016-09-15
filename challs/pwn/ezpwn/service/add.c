@@ -3,6 +3,9 @@
 #include <time.h>
 
 void main() {
+    setvbuf(stdin, NULL, _IONBF, 0);
+    setvbuf(stdout, NULL, _IONBF, 0);
+
     srand(time(NULL));
     int r = rand() % 1000 + 1000;
     int i;
@@ -16,7 +19,7 @@ void main() {
 
     if (fgets(line, sizeof(line), stdin)) {
         if (1 == sscanf(line, "%d", &i)) {
-            r += i;
+            r += abs(i);
         }
     }
 
