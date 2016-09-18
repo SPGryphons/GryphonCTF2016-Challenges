@@ -1,8 +1,11 @@
 # I Need You
-Distribution file is located in the distrib folder.
+A image file with a zip file inside
 
-## Details
+## Question Text
 A QR code with missing information, hint given: "The information you require **begins** with **'00010'**".
+
+## Distribution
+Distribution file is located in the distrib folder.
 
 ## Solution
 To solve this, the user will have to have knowledge about the structure of QR codes. One way to solve this challenge is to use an image editor such as GIMP or Photoshop.

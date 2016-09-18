@@ -1,4 +1,7 @@
 # Dirty Bird
+This challenge requires searching on social media.
+
+## Question Text
 You found a dirty ol' square piece of black paper with a QR code on it, naturally, you become curious... Should you scan it? Image file located in distrib folder.
 
 ## Solution

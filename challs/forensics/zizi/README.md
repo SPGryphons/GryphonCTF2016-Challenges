@@ -1,5 +1,11 @@
 # Zizi
-Your ex-coworker, **Zizi**, discreetly changed your wallpaper on your desktop before leaving the company. Image found in distrib folder.
+Your ex-coworker, **Zizi**, discreetly changed your wallpaper on your desktop before leaving the company.
+
+## Question Text
+Your ex-coworker, **Zizi**, discreetly changed your wallpaper on your desktop before leaving the company...
+
+## Distribution
+Image found in distrib folder.
 
 ## Solution
 The user will need to know about basic hex dumping and file signatures.

@@ -1,7 +1,16 @@
 # Pokemon Gryphon
 All server side files are in service. Server and solution both requires Python 3+. `pokeserver.py` is the main server, and requires `coloredstatus.py` and `pokemons.txt`. `solution.py` is the solution for the challenge.
 
-## Starting the Server
+## Question Text
+Our brand new take on Pokemon Go!
+Can you catch them all? Don't get caught spoofing though!
+`nc play.spgame.site 8000` to start playing!
+
+**Commands:**
+`catch`: when a Pokemon appears near you
+`spoof x,y`: e.g. "spoof 56,-35" to spoof GPS co-ords to x=56, y=-35 (integers only)
+
+## Setup Guide
 ```sh
 $ cd service
 $ ./pokeserver.py [port]

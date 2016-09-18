@@ -1,5 +1,10 @@
 # Hide and Seek
-Distribution file located in distrib folder, solution script located in solution folder, script to recreate the challenge located in challenge folder. The script to recreate the challenge requires the files in the lib folder.
+Distribution file located in distrib folder, solution script located in solution folder, script to recreate the challenge located in generate folder. The script to recreate the challenge requires the files in the lib folder.
+
+## Question Text
+Welcome to Hide and Seek.
+Hiders code to hide, seekers seek to capture the flag.
+Are you a hider or a seeker?
 
 ## Solution
 The challenge requires the user to have knowledge on basic QR code formats and moderate-level programming (loops, IO programming, image processing, QR code parsing, string formatting).

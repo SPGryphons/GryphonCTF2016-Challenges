@@ -1,8 +1,11 @@
 # The Keymaker
-Distribution files are located in the distrib folder.
-
-## Details
 The flag is encrypted with a 256-bit RSA key (both encrypted flag and public key provided in the distrib folder).
+
+## Question Text
+You've intercepted an encrypted flag that was being transmitted between two GCTF admins, along with a 256-bit RSA public key that was used in the encryption of the flag...
+
+## Distribution
+Distribution files are located in the distrib folder.
 
 ## Solution
 To solve this, the user will have to reconstruct the private key from the public key file given. One solution is to factorize the 256-bit modulus "n" found in the public key to produce primes "p" and "q". With those the user will have to calculate the totient and private exponent d to reconstruct the private key. With the reconstructed private key, the user will then be able to decrypt the encrypted flag.
