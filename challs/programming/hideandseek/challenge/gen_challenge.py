@@ -3,9 +3,9 @@
 import pyqrcode, sys, string, random, os, shutil, numpy as np
 from PIL import Image
 
-design_location = "../lib/design.txt"
-blank_img_location = "../lib/blank.png"
-qr_dump_folder = "../qr_dump/"
+design_location = "lib/design.txt"
+blank_img_location = "lib/blank.png"
+qr_dump_folder = "qr_dump/"
 final_chall_file = "../distrib/hideandseek.png"
 
 qr_filename_template = "{0}_{1}"
