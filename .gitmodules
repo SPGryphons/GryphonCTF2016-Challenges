@@ -1,3 +1,9 @@
 [submodule "challs/crypto/thekeymaker/msieve"]
 	path = challs/crypto/thekeymaker/msieve
 	url = https://github.com/radii/msieve
+[submodule "challs/crypto/johntheparanoid/lib/hashcat"]
+	path = challs/crypto/johntheparanoid/lib/hashcat
+	url = https://github.com/hashcat/hashcat
+[submodule "challs/crypto/johntheparanoid/lib/john"]
+	path = challs/crypto/johntheparanoid/lib/john
+	url = https://github.com/magnumripper/JohnTheRipper
