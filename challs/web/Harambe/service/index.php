@@ -28,20 +28,27 @@
 			<?php
 
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				echo 'Well done, here is your flag: GCTF{n0_53cur17y_by_0b5cur17y}';
+				if (empty($_POST["name"])) {
+					echo '<script>alert("name variable is empty!")</script>';
+				} elseif (empty($_POST["comment"])) {
+					echo '<script>alert("comment variable is empty!")</script>';
+				} elseif (empty($_POST["submit"]) && strcasecmp($_POST["submit"],"submit") == 0) {
+					echo '<script>alert("Nice try trying to spoof a form. Not going to work here.")</script>';
+				} else {
+					echo 'Well done, here is your flag: GCTF{n0_53cur17y_by_0b5cur17y}';
+				}
 			}
 
-			?>
-			<h4>Someone keeps posting stupid comments, so the form is disabled for now.</h4>
-<!-- 			<form method="POST" onsubmit="validateform(event);">
-				<div style="margin-bottom:5px">
+/* 				<div style="margin-bottom:5px">
 					Name: <input type="text" name="name"/>
 				</div>
 				<div style="margin-bottom:5px">
 					Comment:<br/>
 					<textarea rows="4" cols="50" name="comment"></textarea>
-				</div>
-				<button type="submit">Submit</button>
+				</div> */
+			?>
+			<h4>Someone keeps posting stupid comments, so the form is disabled for now.</h4>
+<!-- 		<form method="POST" onsubmit="validateform(event);">
 			</form> -->
 			<div>
 				<div class="full-comment">
