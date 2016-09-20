@@ -37,8 +37,13 @@ CREATE TABLE `urls` (
 
 LOCK TABLES `urls` WRITE;
 /*!40000 ALTER TABLE `urls` DISABLE KEYS */;
-INSERT INTO `urls` VALUES (1,'https://dismgryphon.github.io/GryphonCTF/'),(2,'http://spgame.site'),(3,'http://youtube.com'),(4,'http://google.com'),(5,'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),(6,'http://bash.org/?244321'),(7,'https://xkcd.com/85/'),(8,'http://play.spgame.site:9997/fail.html'),(9,'http://bash.org/?835030'),(10,'http://www.doxdesk.com/img/updates/20091116-so-large.gif'),(11,'https://www.youtube.com/watch?v=X2WH8mHJnhM'),
-(12,'http://play.spgame.site:9997/l/12'),(13,'https://getbootstrap.com/css/#forms'),(14,'https://www.symbolab.com/');
+/*!40000 ALTER TABLE `urls` DISABLE KEYS */;
+INSERT INTO `urls` VALUES (1,'https://dismgryphon.github.io/GryphonCTF/'),(2,'http://spgame.site'),(3,'http://youtube.com'),(4,'http://google.com'),(5,'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
+(6, 'http://play.spgame.com:9997/l/7/'),(7, 'http://play.spgame.com:9997/l/8/'),(8, 'http://play.spgame.com:9997/l/9/'),(9, 'http://play.spgame.com:9997/l/10/'),(10, 'http://play.spgame.com:9997/fail.html'),
+(11,'http://bash.org/?244321'),(12,'https://xkcd.com/85/'),(13,'http://bash.org/?835030'),(14,'http://www.doxdesk.com/img/updates/20091116-so-large.gif'),(15,'https://www.youtube.com/watch?v=X2WH8mHJnhM'),
+(16,'http://play.spgame.site:9997/l/12'),(17,'https://getbootstrap.com/css/#forms'),(18,'https://www.symbolab.com/');
+
+
 /*!40000 ALTER TABLE `urls` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

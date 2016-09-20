@@ -39,21 +39,15 @@ public class LinkRedirect extends HttpServlet {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM urls WHERE id=?");	
 			ps.setInt(1, path);
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				String url = rs.getString("url");
-				conn.close();
-                                if (path == 8) {
-                                    response.setHeader("Location", url);
-                                    response.setContentType("text/html");
-                                    response.setStatus(HttpServletResponse.SC_FOUND);
-                                    response.getWriter().println("Well done.<br />GCTF{p47h_7r4v454l_b4ck_h0m3}");
-                                }
-                                else {
-                                    response.sendRedirect(url);
-                                }
-			} else {
-				conn.close();
-				response.sendRedirect("/");
+			String url = (rs.next()) ? rs.getString("url") : "/";
+			conn.close();
+
+			response.setContentType("text/html");
+			response.setHeader("Location", url);
+			response.setStatus(HttpServletResponse.SC_FOUND);
+
+			if (path == 8) {
+				response.getWriter().println("Well done.<br />GCTF{p47h_7r4v454l_b4ck_h0m3}");
 			}
 		} catch (NullPointerException | NumberFormatException | SQLException | ClassNotFoundException ex) {
 			response.sendRedirect("/");
