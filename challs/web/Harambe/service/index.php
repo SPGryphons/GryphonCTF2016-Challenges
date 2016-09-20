@@ -32,7 +32,7 @@
 					echo '<script>alert("name variable is empty!")</script>';
 				} elseif (empty($_POST["comment"])) {
 					echo '<script>alert("comment variable is empty!")</script>';
-				} elseif (empty($_POST["submit"]) && strcasecmp($_POST["submit"],"submit") == 0) {
+				} elseif (empty($_POST["submit"]) && strcasecmp($_POST["submit"],"submit") != 0) {
 					echo '<script>alert("Nice try trying to spoof a form. Not going to work here.")</script>';
 				} else {
 					echo 'Well done, here is your flag: GCTF{n0_53cur17y_by_0b5cur17y}';
