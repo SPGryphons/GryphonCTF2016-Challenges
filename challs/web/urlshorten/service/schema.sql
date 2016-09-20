@@ -37,7 +37,8 @@ CREATE TABLE `urls` (
 
 LOCK TABLES `urls` WRITE;
 /*!40000 ALTER TABLE `urls` DISABLE KEYS */;
-INSERT INTO `urls` VALUES (1,'http://spgame.site'),(2,'http://spgame.site'),(3,'http://youtube.com'),(4,'http://google.com'),(5,'http://'),(6,'http://'),(7,'https://xkcd.com/85/'),(8,'https://spgame.site');
+INSERT INTO `urls` VALUES (1,'https://dismgryphon.github.io/GryphonCTF/'),(2,'http://spgame.site'),(3,'http://youtube.com'),(4,'http://google.com'),(5,'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),(6,'http://bash.org/?244321'),(7,'https://xkcd.com/85/'),(8,'http://play.spgame.site:9997/fail.html'),(9,'http://bash.org/?835030'),(10,'http://www.doxdesk.com/img/updates/20091116-so-large.gif'),(11,'https://www.youtube.com/watch?v=X2WH8mHJnhM'),
+(12,'http://play.spgame.site:9997/l/12'),(13,'https://getbootstrap.com/css/#forms'),(14,'https://www.symbolab.com/');
 /*!40000 ALTER TABLE `urls` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
