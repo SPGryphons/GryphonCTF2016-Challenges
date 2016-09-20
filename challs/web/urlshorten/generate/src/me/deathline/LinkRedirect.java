@@ -42,15 +42,24 @@ public class LinkRedirect extends HttpServlet {
 			if (rs.next()) {
 				String url = rs.getString("url");
 				conn.close();
-				response.sendRedirect(url);
+                                if (path == 8) {
+                                    response.setHeader("Location", url);
+                                    response.setContentType("text/html");
+                                    response.setStatus(HttpServletResponse.SC_FOUND);
+                                    response.getWriter().println("Well done.<br />GCTF{p47h_7r4v454l_b4ck_h0m3}");
+                                }
+                                else {
+                                    response.sendRedirect(url);
+                                }
 			} else {
 				conn.close();
-				response.sendRedirect("../");
+				response.sendRedirect("/");
 			}
 		} catch (NullPointerException | NumberFormatException | SQLException | ClassNotFoundException ex) {
-			response.sendRedirect("../");
+			response.sendRedirect("/");
 		}
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
