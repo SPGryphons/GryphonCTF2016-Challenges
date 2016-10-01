@@ -1,0 +1,12 @@
+service lolcodeservice
+{
+    disable     = no
+    socket_type = stream
+    protocol    = tcp
+    wait        = no
+    user        = lolc0ded
+    bind        = 0.0.0.0
+    server      = /var/www/start.sh
+    type        = UNLISTED
+    port        = 13337
+}
