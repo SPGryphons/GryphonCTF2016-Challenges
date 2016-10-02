@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t jukebox .
+docker build -t dragrace .

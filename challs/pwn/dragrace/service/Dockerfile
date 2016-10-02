@@ -1,13 +1,12 @@
 FROM ubuntu:latest
-ENV user=jukeboxuser
-RUN dpkg --add-architecture i386
+ENV user=draguser
 RUN apt-get update
-RUN apt-get install -y xinetd libc6:i386 libncurses5:i386 libstdc++6:i386 ed
+RUN apt-get install -y xinetd
 RUN useradd -m $user
 RUN echo "$user     hard    nproc       20" >> /etc/security/limits.conf
-COPY ./jukebox /home/$user/jukebox
+COPY ./dragrace /home/$user/dragrace
 COPY ./flag /home/$user/flag
-COPY ./jukeboxservice /etc/xinetd.d/jukeboxservice
+COPY ./dragraceservice /etc/xinetd.d/dragraceservice
 RUN chown -R root:$user /home/$user
 RUN chmod -R 750 /home/$user
 RUN chown root:$user /home/$user/flag

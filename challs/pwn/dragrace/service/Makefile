@@ -1,2 +1,2 @@
-all: diapers.c
-	gcc -m32 -fstack-protector -o diapers diapers.c
+all: dragrace.c
+	gcc -fno-stack-protector -zexecstack -o dragrace dragrace.c

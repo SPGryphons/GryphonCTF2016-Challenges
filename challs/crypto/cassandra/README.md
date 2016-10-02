@@ -65,3 +65,5 @@ To obtain the rest of the bits, repeat this process with
 
 m1 = 000...0 where len(m1) = 128 - bit position
 m2 = IV1 ^ IV2 ^ (m1 || known bits || 0)
+
+Working exploit is in service/exploit.py.
