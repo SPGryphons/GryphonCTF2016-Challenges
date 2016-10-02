@@ -6,12 +6,14 @@ to abuse the Oracle to decrypt the flag one bit at a time.
 
 # Question Text
 
+```
 He gave to her, yet tenfold claim'd in return -
 She hath no life but the one he for her wrought;
 Proffer'd to her his wauking heart - she turn'd it down,
 Riposted with a tell-tale lore of lies and scorn.
 
 (https://youtu.be/\_J4Onll7VNs)
+```
 
 *Creator -  amon (@nn_amon)*
 
