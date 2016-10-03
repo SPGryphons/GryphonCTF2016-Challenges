@@ -1,28 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+char src_file[40] = "cat /home/blackbeautyuser/blackbeauty.c";
 
 struct ticker_tape {
-    unsigned int length;
-    char symbol[8];
+    long length;
+    char * symbol;
     char tape[128];
 };
 
 void tape_machine(int user_length) {
     struct ticker_tape user_tape;
     user_tape.length = user_length;
-    strcpy(user_tape.symbol, "NOOB");
-    int position = 0;
+    user_tape.symbol = malloc(16);
+    strcpy(user_tape.symbol, "LANA");
+    memset(user_tape.tape, 0, 128);
+    long position = 0;
     int running = 1;
     int choice = 0;
     int i = 0;
+    char value = 0;
     while (running) {
         puts("Ticker Tape Menu:");
         puts("1) Print stock values");
-        puts("2) Write value");
+        printf("2) Write value at position %d\n", position);
         puts("3) Seek to position");
-        puts("\n0) Exit");
+        puts("4) Change symbol");
+        puts("8) View Source");
+        puts("\n9) Exit");
         scanf("%d", &choice);
-        if (choice == 0) {
+        if (choice == 9) {
             running = 0;
         }
         else if (choice == 1) {
@@ -32,13 +40,34 @@ void tape_machine(int user_length) {
             }
         }
         else if (choice == 2) {
+            if (position < user_tape.length) {
+                printf("Enter value: ");
+                scanf("%d", &value);
+                *(user_tape.tape + position) = value;
+                ++position;
+            }
+            else {
+                puts("End of tape.");
+            }
         }
         else if (choice == 3) {
+            printf("Enter position: ");
+            scanf("%ld", &position);
+        }
+        else if (choice == 4) {
+            printf("Change symbol: ");
+            read(0, user_tape.symbol, 16);
+        }
+        else if (choice == 8) {
+            system(src_file);
         }
     }
 }
 
 int main() {
+    setvbuf(stdin, NULL, _IONBF, 0);
+    setvbuf(stdout, NULL, _IONBF, 0);
+
     puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     puts("% Nothing my sparrow, blue.  %");
     puts("%     Oh what can I do?      %");

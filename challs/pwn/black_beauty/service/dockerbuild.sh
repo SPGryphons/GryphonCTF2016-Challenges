@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t aleph .
+docker build -t blackbeauty .

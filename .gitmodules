@@ -7,3 +7,9 @@
 [submodule "challs/crypto/johntheparanoid/lib/john"]
 	path = challs/crypto/johntheparanoid/lib/john
 	url = https://github.com/magnumripper/JohnTheRipper
+[submodule "challs/programming/forest/service/keystone"]
+	path = challs/programming/forest/service/keystone
+	url = https://github.com/keystone-engine/keystone
+[submodule "challs/programming/forest/service/unicorn"]
+	path = challs/programming/forest/service/unicorn
+	url = https://github.com/unicorn-engine/unicorn.git
