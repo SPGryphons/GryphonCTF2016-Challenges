@@ -9,7 +9,7 @@ stored on the executable heap.
 ```
 This bad binary is all T. All Shade.
 
-nc xxx.xxx.xxx.xxx 1345
+nc play.spgame.site 1345
 ```
 
 *Creator -  amon (@nn_amon)*

@@ -9,7 +9,7 @@ pointers and the value of the return address to help noobs to pwn.
 ```
 Do Aleph One proud.
 
-nc xxx.xxx.xxx.xxx 1346
+nc play.spgame.site 1346
 ```
 
 *Creator -  amon (@nn_amon)*

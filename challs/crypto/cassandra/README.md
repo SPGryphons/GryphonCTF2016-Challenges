@@ -13,6 +13,8 @@ Proffer'd to her his wauking heart - she turn'd it down,
 Riposted with a tell-tale lore of lies and scorn.
 
 (https://youtu.be/\_J4Onll7VNs)
+
+nc play.spgame.site 1344
 ```
 
 *Creator -  amon (@nn_amon)*

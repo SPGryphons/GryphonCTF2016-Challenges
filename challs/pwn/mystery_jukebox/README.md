@@ -10,7 +10,7 @@ format string vulnerability to overwrite GOT entries.
 Listen to some Postmodern Jukebox (https://youtu.be/NTmk0Pqk6hs) while playing
 with this Mystery Jukebox program!
 
-nc xxx.xxx.xxx.xxx 1343
+nc play.spgame.site 1343
 ```
 
 *Creator -  amon (@nn_amon)*
