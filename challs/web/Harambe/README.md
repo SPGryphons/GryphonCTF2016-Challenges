@@ -10,4 +10,16 @@ http://play.spgame.site:9998
 Deploy using any form of PHP web application.
 
 ## Solution
-Uncomment the html code in the page then disable javascript.
+1. Uncomment the html code in the webpage
+2. Add the following lines to the form and fill in the data form.
+```html
+ 				<div style="margin-bottom:5px">
+					Name: <input type="text" name="name"/>
+				</div>
+				<div style="margin-bottom:5px">
+					Comment:<br/>
+					<textarea rows="4" cols="50" name="comment"></textarea>
+				</div> 
+```
+3. Disable Javascript to prevent text validation
+4. Send and get your flag!
