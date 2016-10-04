@@ -8,7 +8,7 @@ import ctypes
 import sys
 from select import select
 
-FLAG = file("flag").read()
+FLAG = file("/home/forestuser/flag").read()
 
 registers = {'eax': UC_X86_REG_EAX, 'rax': UC_X86_REG_RAX,
              'ebx': UC_X86_REG_EBX, 'rbx': UC_X86_REG_RBX,

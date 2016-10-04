@@ -31,7 +31,7 @@ def pad_message(message):
         message = message + padding_len * "\x00"
     return message
 
-FLAG = file("flag").read().strip()
+FLAG = file("/home/oracleuser/flag").read().strip()
 assert len(FLAG) <= BLOCK_SIZE
 FLAG = str_to_bin(FLAG)
 
