@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:trusty
 ENV user=jukeboxuser
 RUN dpkg --add-architecture i386
 RUN apt-get update
