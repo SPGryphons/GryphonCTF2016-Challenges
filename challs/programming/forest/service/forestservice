@@ -1,0 +1,14 @@
+service forestservice
+{
+    disable = no
+    socket_type = stream
+    protocol    = tcp
+    wait        = no
+    user        = forestuser
+    bind        = 0.0.0.0
+    server      = /home/forestuser/forest.py
+    type        = UNLISTED
+    port        = 31337
+    env         = PYTHON_EGG_CACHE=/opt/eggcache/
+}
+
