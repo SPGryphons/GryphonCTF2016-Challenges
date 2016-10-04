@@ -11,4 +11,7 @@ Go to `generate\setup.py` to generate the file. It will not be the same file as 
 
 ## Solution
 The solution is in `solution\solution.py`
-TODO on explanation
+
+This challenge is pretty evil, as it requires the user to SHA-512 the ASCII version of numbers from 1 to 1 million 512 times to generate a hash that is to be compared with the hashes given in the file.
+
+If the hashes are different, the difference in integer is the ASCII code for the flag character. This script should take less than 10 minutes to finish comparing and reading the file.

@@ -14,7 +14,7 @@ def handler(con,q):
     try:
         num = random.randint(1,100)
         random.seed(num)
-        con.sendall("My numbers are always between 1 (inclusive) to 100 (exclusive)!\n");
+        con.sendall("My numbers are always between 1 (inclusive) to 100 (inclusive)!\n");
         con.sendall("Guess my number 10 times and you get a prize!\n\n");
         for i in range(10):
             con.sendall("My number is: " + str(num) + "\n")
