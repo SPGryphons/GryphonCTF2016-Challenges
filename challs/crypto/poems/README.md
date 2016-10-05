@@ -11,7 +11,7 @@ Look for patterns
 Distribute all the contents inside `distrib` folder to the users.
 
 ## Solution  
-1. Replace the following letters with this:
+1. Replace the following letters with this:  
 A to E  
 B to U  
 D to W  
