@@ -4,7 +4,7 @@
 		<script>
 			function validateform(event) {
 				event.preventDefault();
-				alert('FORM\'S DISABLED! STOP TRYING');
+				alert('Form is disabled. Try again later.');
 				return false;
 			}
 		</script>
@@ -49,6 +49,7 @@
 			?>
 			<h4>Someone keeps posting stupid comments, so the form is disabled for now.</h4>
 <!-- 		<form method="POST" onsubmit="validateform(event);">
+				<button type="submit" value="submit">Submit</button>
 			</form> -->
 			<div>
 				<div class="full-comment">
