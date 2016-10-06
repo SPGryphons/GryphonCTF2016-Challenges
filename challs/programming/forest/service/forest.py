@@ -33,6 +33,17 @@ def pg_reg_immediate(op, bitlen=24):
     instruction = "%s %s, %s" % (op, register, hex(immediate).replace("L", ""))
     return (set([register]), instruction)
 
+def pg_reg(op, allowed_reg):
+    register = random.choice(allowed_reg)
+    instruction = "%s %s" % (op, register)
+    return (set(), instruction)
+
+def pg_immediate(op, allowed_reg, bitlen=64):
+    register = random.choice(allowed_reg)
+    immediate = random.randrange(0, 2**bitlen)
+    instruction = "%s %s" % (op, hex(immediate).replace("L", ""))
+    return (set([register]), instruction)
+
 def g_increment():
     register = random.choice(registers.keys())
     instruction = "inc %s" % register
@@ -50,6 +61,12 @@ def g_xor_reg():
 def g_xor_immediate():
     return pg_reg_immediate("xor")
 
+def g_and_reg():
+    return pg_reg_reg("and", random.choice([e_reg, r_reg]))
+
+def g_and_immediate():
+    return pg_reg_immediate("and")
+
 def g_add_reg():
     return pg_reg_reg("add", random.choice([e_reg, r_reg]))
 
@@ -62,14 +79,48 @@ def g_sub_reg():
 def g_sub_immediate():
     return pg_reg_immediate("sub")
 
+def g_push_reg():
+    return pg_reg("push", r_reg)
+
+def g_push_immediate():
+    return pg_immediate("push", r_reg)
+
+def g_pop_reg():
+    return pg_reg("pop", r_reg)
+
+def g_lea_reg_reg_immediate():
+    register = random.choice(registers.keys())
+    register_2 = random.choice(registers.keys())
+    immediate = random.randrange(0, 2**24)
+    instruction = "lea %s, [%s+%s]" % (register, register_2, hex(immediate).replace("L", ""))
+    return (set([register]), instruction)
+
+def g_lea_reg_reg_reg():
+    register = random.choice(registers.keys())
+    reg_choice = random.choice([e_reg, r_reg])
+    register_2 = random.choice(reg_choice)
+    register_3 = random.choice(reg_choice)
+    instruction = "lea %s, [%s+%s]" % (register, register_2, register_3)
+    return (set([register]), instruction)
+
 def generate_sample(num):
     cases = [g_increment, g_mov_immediate, g_mov_reg, g_xor_reg,
              g_xor_immediate, g_add_reg, g_add_immediate, g_sub_reg,
-             g_sub_immediate]
+             g_sub_immediate, g_push_reg, g_and_reg, g_and_immediate,
+             g_lea_reg_reg_immediate, g_lea_reg_reg_reg]
     instructions = []
     registers = set()
+    stack_values = 0
     for i in range(num):
-        register, instruction = random.choice(cases)()
+        valid_cases = list(cases)
+        if stack_values > 0:
+            valid_cases.append(g_pop_reg)
+        operation = random.choice(valid_cases)
+        if operation == g_push_reg or operation == g_push_immediate:
+            stack_values += 1
+        if operation == g_pop_reg:
+            stack_values -= 1
+        register, instruction = operation()
         registers.update(register)
         instructions.append(instruction)
     return (registers, instructions)
@@ -93,7 +144,11 @@ def emulate(bytecode, chosen_register):
     code = "".join(map(chr, bytecode))
     mu = Uc(UC_ARCH_X86, UC_MODE_64)
     ADDRESS = 0x1000000
+    STACK_ADDRESS = 0x2000000
+    STACK_END_ADDRESS = STACK_ADDRESS + (1 * 512 * 1024)
     mu.mem_map(ADDRESS, 1 * 1024 * 1024)
+    mu.mem_map(STACK_ADDRESS, 1 * 512 * 1024)
+    mu.reg_write(UC_X86_REG_RSP, STACK_END_ADDRESS)
     mu.mem_write(ADDRESS, code)
     mu.emu_start(ADDRESS, ADDRESS + len(code))
     reg = mu.reg_read(registers[chosen_register])
@@ -113,8 +168,8 @@ def main():
 
     ks = Ks(KS_ARCH_X86, KS_MODE_64)
 
-    for i in range(100):
-        write("==== %d/100 ====" % (i + 1))
+    for i in range(200):
+        write("==== %d/200 ====" % (i + 1))
         registers, instructions = generate_sample(5 + i)
         bytecode, count = ks.asm("\n".join(instructions))
         chosen_register = random.choice(list(registers))
