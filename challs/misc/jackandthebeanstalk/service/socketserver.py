@@ -10,7 +10,7 @@ import random
 
 def handler(con,q):
     # con is the TCP socket connected to the client
-    con.settimeout(3.0)
+    con.settimeout(10.0)
     try:
         num = random.randint(1,100)
         random.seed(num)
@@ -46,7 +46,7 @@ serversocket.bind(('0.0.0.0', 9999))
 serversocket.listen(5) # become a server socket, maximum 5 connections
 print "Server starts listening ..."
 stopFlag=False
-serversocket.settimeout(3.0) # setup a 3 seconds timeout to exit the blocking state
+serversocket.settimeout(10.0) # setup a 3 seconds timeout to exit the blocking state
 while True:
     if not stopFlag:
         try:
