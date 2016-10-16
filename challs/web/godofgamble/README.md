@@ -1,13 +1,12 @@
-# Challenge Name
-Brief information on how to set up this challenge
+# God Of Gamble
+This challenge is a no brainer. --> God Of Gamble
 
-## Question Text
-Challenge Description
+## Description
+This challenge objective is for the participants to learn how to script with forms
+
 
 ## Setup Guide
-1. Fill this in
-2. Commit to git
-3. Push to repository
+1. Set up a php-apache server
 
 ## Distribution
 Distribute all the contents inside `distrib` folder to the users.

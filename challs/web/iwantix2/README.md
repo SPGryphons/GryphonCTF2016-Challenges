@@ -1,6 +1,5 @@
 #iwantix2
-Build it with docker 
-
+This is a challenge that requires the participants to analyse the http header and understand basic ssh tunneling and sql injection knowledge.
 
 ```
 docker build -t iwantix2 .
@@ -21,13 +20,12 @@ service ssh start
 ```
 
 ##Question Text
-To be done
+Get into the organiser's network and generate tickets so you can sell it at a very low price to our dear admin QR!
 
 ##Solution
-Tunnel into the port 8001 which is provided in the index.html
+Tunnel into the port 8001 which is provided in the index.php
 
-Access it at the localhost:Yourport/admin
+Access it at the localhost:Yourport/
 
-Do a SQL Injection to get the flag
-
+Do a SQL Injection 'OR '1'='1 to get the flag,
 
